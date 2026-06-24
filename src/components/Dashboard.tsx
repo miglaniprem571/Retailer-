@@ -21,12 +21,12 @@ export const Dashboard: React.FC<DashboardProps> = ({
       {/* Hero Header */}
       <div className="px-4 pt-6 pb-8">
         <div className="flex items-center gap-3 mb-1">
-          <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center p-1 shrink-0">
-            <img src="/globeam-logo.png" alt="Globeam Logo" className="w-full h-full object-contain" />
+          <div className="bg-white px-3 py-1.5 rounded-xl shrink-0 flex items-center justify-center shadow-md">
+            <img src="/globeam-logo.jpg" alt="Globeam Logo" className="h-5 object-contain" />
           </div>
           <div>
-            <h1 className="text-brand-text font-extrabold text-xl leading-tight">
-              Globeam Retail Saathi
+            <h1 className="text-brand-text font-extrabold text-lg leading-tight">
+              Retail Saathi
             </h1>
             <p className="text-brand-subtle text-xs">Globeam Radiant Pvt Ltd</p>
           </div>

@@ -54,13 +54,8 @@ export const Auth: React.FC<AuthProps> = ({ onAuth }) => {
       <div className="flex-1 flex flex-col items-center justify-center px-6 relative z-10">
         {/* Logo */}
         <div className="text-center mb-10">
-          <div
-            className="w-20 h-20 rounded-3xl mx-auto flex items-center justify-center mb-4 p-2 bg-white shadow-lg shadow-white/5"
-            style={{
-              border: '1.5px solid rgba(255,255,255,0.1)',
-            }}
-          >
-            <img src="/globeam-logo.png" alt="Globeam Logo" className="w-full h-full object-contain" />
+          <div className="bg-white p-2.5 rounded-2xl inline-block mx-auto mb-4 shadow-lg shadow-white/5">
+            <img src="/globeam-logo.jpg" alt="Globeam Logo" className="h-9 object-contain mx-auto" />
           </div>
           <h1 className="text-brand-text font-black text-3xl">Retail Saathi</h1>
           <p className="text-brand-muted text-sm mt-1">Globeam Radiant Pvt Ltd</p>
