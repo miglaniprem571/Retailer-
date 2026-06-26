@@ -142,7 +142,24 @@ INSERT INTO products (product_name, sku) VALUES
   ('Mini GL-006', 'MGL006'),
   ('Mini Plus', 'MPLUS'),
   ('Drishti 360', 'DRS360'),
-  ('Magic Torch', 'MTRCH')
+  ('Magic Torch', 'MTRCH'),
+
+  -- New Added Products
+  ('Hunter', 'HUNTER'),
+  ('Sumo', 'SUMO'),
+  ('Damini', 'DAMINI'),
+  ('Noorie -pro', 'NOORIEPRO'),
+  ('Drishti -360', 'DRISHTI360'),
+  ('Nikki', 'NIKKI'),
+  ('Magic', 'MAGIC'),
+  ('GL -006 mini', 'GL006MINI'),
+  ('GL-007 mini plus', 'GL007MINIPLUS'),
+  ('Solar lamp -5250', 'SOLARLAMP5250'),
+  ('1 AMP Charger', '1AMPCHG'),
+  ('2 AMP Charger', '2AMPCHG'),
+  ('3040', '3040'),
+  ('6450', '6450'),
+  ('Infrared Cooktop', 'INFCOOKTOP')
 ON CONFLICT (product_name) DO UPDATE SET sku = EXCLUDED.sku;
 
 -- Note: Inventory rows are automatically created per-user by the app on login.

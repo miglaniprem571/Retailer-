@@ -15,6 +15,11 @@ export interface MatchResult {
 function normalize(name: string): string {
   return name
     .toLowerCase()
+    .replace(/\([^)]*\)/g, '') // remove parentheses and their contents
+    // Strip 'torch'/'torches' suffix UNLESS preceded by 'magic' (preserve "magic torch" as a product name)
+    .replace(/(?<!magic\s*)(torches|torch)\b/gi, '')
+    .replace(/(\d+)\s*(pcs|pc|nos|no|nag|pkt|units|unit|pkts|g)\b/gi, '$1') // remove unit names adjacent to digits
+    .replace(/\b(pcs|pc|nos|no|nag|pkt|units|unit|pkts|g)\b/gi, '') // remove standalone unit names
     .replace(/[-_\s]/g, '')  // remove separators
     .replace(/gl0+/g, 'gl0') // normalize GL-006 vs GL06
     .trim();
@@ -66,8 +71,18 @@ export function matchProducts(
   const best = results[0];
   const score = best.score ?? 1;
 
+  // Determine a safe threshold based on normalized query length
+  let maxAllowedScore = 0.35; // default threshold
+  if (normalizedQuery.length <= 2) {
+    maxAllowedScore = 0.05; // extremely strict for 2 chars
+  } else if (normalizedQuery.length === 3) {
+    maxAllowedScore = 0.15; // strict for 3 chars
+  } else if (normalizedQuery.length === 4) {
+    maxAllowedScore = 0.25; // moderately strict for 4 chars
+  }
+
   // Return null if match is too weak
-  if (score > 0.5) return null;
+  if (score > maxAllowedScore) return null;
 
   return {
     product: best.item,

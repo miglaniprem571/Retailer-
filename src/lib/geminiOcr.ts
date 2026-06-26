@@ -19,9 +19,10 @@ Return ONLY a valid JSON array in this exact format, nothing else:
 Important rules:
 - Extract every product you can find.
 - Quantities should be positive integers.
-- **Hindi-to-English Transliteration Rule**: If a product name is written in Hindi (Devanagari script, e.g. नूरी, बादल, सैनिक, जुगनू, साथी, कोयल, मिली), you MUST transliterate/translate it to English (e.g. "Noorie", "Badal", "Sainik", "Jugnu", "Saathi", "Koyal", "Mili") so it matches the English catalog. Strictly do NOT use Devanagari/Hindi characters in the "product_name" output.
+- **Hindi-to-English Transliteration Rule**: If a product name is written in Hindi (Devanagari script, e.g. जोश, नूरी, बादल, सैनिक, जुगनू, साथी, कोयल, मिली), you MUST transliterate/translate it to English (e.g. "Josh", "Noorie", "Badal", "Sainik", "Jugnu", "Saathi", "Koyal", "Mili") so it matches the English catalog. Strictly do NOT use Devanagari/Hindi characters in the "product_name" output.
 - Common Indian product slip abbreviations: Qty, Pcs, Nos, Nag, Pkt.
 - If you see "pcs", "nos", "units" next to a number, that is the quantity.
+- **Product Name Cleanup Rule**: Retailers often add the generic word "torch" or "torches" after product names on their slips (e.g. "Josh Torch", "9900 Torch", "Sainik Torches"). You MUST strip the trailing word "torch" or "torches" from the product name UNLESS the full product name is literally "Magic Torch". For example, write "Josh" not "Josh Torch", "9900" not "9900 Torch", but keep "Magic Torch" as-is.
 - Return [] if no products found.
 - Do NOT include any explanation, only the JSON array.`;
 
